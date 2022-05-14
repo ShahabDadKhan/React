@@ -24,6 +24,15 @@
           name: "Toruk Makto",
           age: 24,
         };
+        handelChange = (e) => {
+          this.setState({
+            name: e.target.value,
+          });
+        };
+        submitTheForm = (e) => {
+          e.preventDefault();
+          console.log(this.state.name, "has submitted the form");
+        };
         render() {
           return (
             <div className="app-content">
@@ -31,6 +40,10 @@
               <p>
                 My name is {this.state.name} & I am {this.state.age}
               </p>
+              <form onSubmit={this.submitTheForm}>
+                <input type="text" onChange={this.handelChange} />
+                <button>Submit</button>
+              </form>
             </div>
           );
         }
